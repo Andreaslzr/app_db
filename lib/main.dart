@@ -9,7 +9,7 @@ void main()async {
    WidgetsFlutterBinding.ensureInitialized(); // Para garantir que o Flutter esteja inicializado antes de acessar o banco de dados
   await _insertInitialProd(); 
 }
-// função para inserir dados no banco de dados
+
 Future<void> _insertInitialProd() async {
   var database = await _initializeDatabase();
   var trakinas = Prod(id: 5, nome: "Trakinas", qtde: 10);
@@ -17,7 +17,7 @@ Future<void> _insertInitialProd() async {
   await _insertProd(database, trakinas);
   await _insertProd(database, nescau);
 }
-// função para inicializar o banco de dados
+
 Future<Database> _initializeDatabase() async {
   return openDatabase(
     join(await getDatabasesPath(), 'prods_a.db'),
@@ -115,7 +115,7 @@ class Prod{
     required this.nome,
     required this.qtde
   });
-   // função para transformar os dados em Map para salvar no banco de dados
+
   Map<String,dynamic> toMap(){
     return { 'id':id, 'nome':nome, 'quantidade':qtde};
   }
